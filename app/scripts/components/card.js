@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 let numeral = require("numeral");
 let backdropIMG;
 
-export default class Card extends Component {
+class Card extends Component {
   render() {
     let data = this.props.data;
 
-    let posterIMG = "https://image.tmdb.org/t/p/w500" + data.poster;
-    let production = data.production;
-    let productionCountries = data.production_countries;
-    let genres = data.genre;
-    let totalRevenue = data.revenue;
-    let productionList = nestedDataToString(production);
-    let productionCountriesList = nestedDataToString(productionCountries);
-    let noData = "-";
-    let genresList = nestedDataToString(genres);
-    let backdropIMG = "https://image.tmdb.org/t/p/original" + data.backdrop;
+    let posterIMG = "https://image.tmdb.org/t/p/w500" + data.poster,
+      production = data.production,
+      productionCountries = data.production_countries,
+      genres = data.genre,
+      totalRevenue = data.revenue,
+      productionList = nestedDataToString(production),
+      productionCountriesList = nestedDataToString(productionCountries),
+      noData = "-",
+      genresList = nestedDataToString(genres);
+    backdropIMG = "https://image.tmdb.org/t/p/original" + data.backdrop;
 
+    // conditional statements for no data
     if (data.vote === "undefined" || data.vote === 0) {
       data.vote = noData;
     } else {
@@ -27,10 +27,10 @@ export default class Card extends Component {
     if (totalRevenue === "undefined" || totalRevenue === 0) {
       totalRevenue = noData;
     } else {
-      totalRevenue = numeral(data.revenue).format("($0, 0)");
+      totalRevenue = numeral(data.revenue).format("($0,0)");
     }
 
-    if (data.poster === null) {
+    if (data.poster == null) {
       posterIMG =
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g";
     }
@@ -73,8 +73,7 @@ export default class Card extends Component {
       </div>
     );
   }
-
-  componentDidMount() {
+  componentDidUpdate() {
     document.body.style.backgroundImage = "url(" + backdropIMG + ")";
   }
 }
@@ -82,12 +81,12 @@ export default class Card extends Component {
 function nestedDataToString(nestedData) {
   let nestedArray = [],
     resultString;
-
   if (nestedData !== undefined) {
     nestedData.forEach(function(item) {
       nestedArray.push(item.name);
     });
   }
-  resultString = nestedArray.join("");
+  resultString = nestedArray.join(", "); // array to string
   return resultString;
 }
+module.exports = Card;

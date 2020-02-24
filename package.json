@@ -1,7 +1,7 @@
 {
-  "name": "MovieSearch",
+  "name": "reactjs-tmdb-app",
   "version": "0.0.5",
-  "author": "SM akteruzzaman",
+  "author": "Stephen Kempin (https://stephenkempin.co.uk/)",
   "license": "MIT",
   "keywords": [
     "react",

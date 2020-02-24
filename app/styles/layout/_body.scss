@@ -1,0 +1,28 @@
+/* body */
+html {
+  height: 100%;
+}
+
+body {
+  background: #c9ad00;
+  background-repeat: no-repeat;
+  font-family: $lato;
+  background-size: cover;
+  height: 100%;
+}
+
+// outer-container for background image
+#outer-container {
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.85) 100%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  background-attachment: fixed;
+  margin: 0;
+  background-size: 100%;
+  // for full browser height and no gradient break
+}
+
+#app {
+  animation: fadein ease-out 1.4s;
+}

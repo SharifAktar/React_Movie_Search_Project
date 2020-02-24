@@ -1,26 +1,16 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-//const TMDBLogo = "./images/tmdb.svg";
+const TMDBLogo = "./images/tmdb.svg";
 
-export default class SearchBox extends Component {
+class SearchBox extends Component {
   handleChange(event) {
     event.target.select();
   }
-
   render() {
     return (
       <div className="col-xs-12 search-container nopadding">
         <div className="row">
-          <div className="col-xs-12 col-sm-6 col-lg-5">
-            {/* <a
-                  href="./"
-                  title="ReactJS TMDb Movie Search"
-                  onclick="ga('send', 'event', 'link', 'internal', 'TMDB logo')"
-                >
-                  <img src={TMDBLogo} className="logo" alt="The Movie Database" />
-                </a> */}
-          </div>
-          <div className="col-xs-12 col-sm-6 col-lg-7">
+          <div className="col-xs-12 col-sm-12 col-lg-12">
             <form className="searchbox">
               {/* <label> */}
               <input
@@ -28,7 +18,7 @@ export default class SearchBox extends Component {
                 onClick={this.handleChange}
                 className="searchbox__input typeahead form-control"
                 type="text"
-                placeholder="Search Movie Title..."
+                placeholder="Please enter movie name.."
                 id="q"
               />
               {/* </label> */}
@@ -39,3 +29,4 @@ export default class SearchBox extends Component {
     );
   }
 }
+module.exports = SearchBox;

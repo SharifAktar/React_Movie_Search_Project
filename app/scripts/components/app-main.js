@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import SearchBox from "./Components/Search";
-import Card from "./Components/Card";
+import SearchBox from "./search";
+import Card from "./card";
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      movieID: 157336 // set initital load movie - Interstellar
+      movieID: 299534
     };
   }
   render() {
@@ -47,12 +47,12 @@ export default class App extends Component {
   } // end function
 
   fetchMovieID(movieID) {
-    let url = `https://api.themoviedb.org/3/movie/${movieID}?&api_key=cfe422613b250f702980a3bbf9e90716`;
+    let url = `https://api.themoviedb.org/3/movie/${movieID}?&api_key=03b8572954325680265531140190fd2a`;
     this.fetchApi(url);
   } // end function
 
   componentDidMount() {
-    let url = `https://api.themoviedb.org/3/movie/${this.state.movieID}?&api_key=cfe422613b250f702980a3bbf9e90716`;
+    let url = `https://api.themoviedb.org/3/movie/${this.state.movieID}?&api_key=03b8572954325680265531140190fd2a`;
     this.fetchApi(url);
 
     //========================= BLOODHOUND ==============================//
@@ -63,7 +63,7 @@ export default class App extends Component {
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       remote: {
         url:
-          "https://api.themoviedb.org/3/search/movie?query=%QUERY&api_key=cfe422613b250f702980a3bbf9e90716",
+          "https://api.themoviedb.org/3/search/movie?query=%QUERY&api_key=03b8572954325680265531140190fd2a",
         filter: function(movies) {
           // Map the remote source JSON array to a JavaScript object array
           return $.map(movies.results, function(movie) {

@@ -1,6 +1,6 @@
 /* card */
 .cardcont {
-  border-radius: 3px;
+  border-radius: 10px;
   background: rgba(0, 0, 0, 0.85);
 }
 
@@ -8,7 +8,7 @@
 .poster-container {
   .poster {
     width: 100%;
-    border-radius: 0 0 3px 3px;
+    border-radius: 10px 10px 10px 10px;
   }
 }
 
@@ -41,7 +41,7 @@
 
     .release-details {
       div {
-        &:nth-child(n+3) {
+        &:nth-child(n + 3) {
           margin-top: 15px;
         }
       }
